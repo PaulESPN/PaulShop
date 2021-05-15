@@ -46,7 +46,7 @@ function RegisterScreen({location, history}) {
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>
 
-        <Form.Group>
+        <Form.Group controlId='name'>
           <Form.Label>Name</Form.Label>
           <Form.Control
             required
@@ -58,7 +58,7 @@ function RegisterScreen({location, history}) {
           </Form.Control>
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group controlId='email'>
           <Form.Label>Email Address</Form.Label>
           <Form.Control
             required
@@ -70,7 +70,7 @@ function RegisterScreen({location, history}) {
           </Form.Control>
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group controlId='password'>
           <Form.Label>Password</Form.Label>
           <Form.Control
             required
@@ -82,7 +82,7 @@ function RegisterScreen({location, history}) {
           </Form.Control>
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group controlId='confirmPassword'>
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control
             required

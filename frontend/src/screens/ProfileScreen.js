@@ -38,7 +38,7 @@ function ProfileScreen({history}) {
       if(!userInfo){
         history.push('/login')
       }else{
-        if(!user || !user.name || success){
+        if(!user || !user.name || success || userInfo._id !== user._id ){
           dispatch({type:USER_UPDATE_PROFILE_RESET})
           dispatch(getUserDetails('profile'))
           dispatch(listMyOrders())
@@ -129,16 +129,19 @@ function ProfileScreen({history}) {
               <Message variant="danger">{errorOrders}</Message>
             ) : (
               <Table striped responsive className='table-sm'>
-                <tr>
-                  <th>ID</th>
-                  <th>Date</th>
-                  <th>Total</th>
-                  <th>Paid</th>
-                  <th>Delivered</th>
-                </tr>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>Total</th>
+                    <th>Paid</th>
+                    <th>Delivered</th>
+                  </tr>
+                </thead>
+
                 <tbody>
                   {orders.map(order => (
-                    <tr>
+                    <tr key={order._id}>
                       <td>{order._id}</td>
                       <td>{order.createdAt.substring(0,10)}</td>
                       <td>${order.totalPrice}</td>

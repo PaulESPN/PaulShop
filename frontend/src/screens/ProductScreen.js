@@ -8,7 +8,8 @@ import {
   ListGroup,
   Button,
   Card,
-  Form
+  Form,
+  Container
 } from 'react-bootstrap'
 import Rating from '../components/Rating'
 import Loader from '../components/Loader'
@@ -66,11 +67,11 @@ function ProductScreen({match, history}) {
           : (
             <div>
               <Row>
-                <Col md={6}>
+                <Col md={3}>
                   <Image src={product.image} alt={product.name} fluid="fluid"></Image>
                 </Col>
 
-                <Col md={3}>
+                <Col md={6}>
                   <ListGroup variant="flush">
                     <ListGroup.Item>
                       <h3>{product.name}</h3>
@@ -148,7 +149,7 @@ function ProductScreen({match, history}) {
                 </Col>
               </Row>
 
-              <Row>
+              <Row className='py-3'>
                 <Col md={6}>
                   <h4>Reviews</h4>
                   {product.reviews.length === 0 && <Message variant='info'>No Reviews</Message>}
@@ -158,7 +159,7 @@ function ProductScreen({match, history}) {
                         <strong>{review.name}</strong>
                         <Rating value={review.rating} color='#f8e825'/>
                         <p>{review.createdAt.substring(0,10)}</p>
-                        <p>"{review.comment}"</p>
+                        <p>{review.comment == '' ? '' : (`"${review.comment}"`)}</p>
                       </ListGroup.Item>
                     )}
 
@@ -194,6 +195,7 @@ function ProductScreen({match, history}) {
                             >
                             </Form.Control>
                           </Form.Group>
+                          <div className='py-2'></div>
                           <Button
                             disabled={loadingProductReview}
                             type='submit'

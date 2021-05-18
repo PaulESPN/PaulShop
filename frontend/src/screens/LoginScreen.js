@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {useDispatch,useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
 
-import { Row, Col, Form, Button } from 'react-bootstrap'
+import { Row, Col, Form, Button} from 'react-bootstrap'
 
 import Loader from '../components/Loader'
 import Message from '../components/Message'
@@ -33,7 +33,7 @@ function LoginScreen({location, history}) {
     }
 
     return (
-        <FormContainer>
+        <FormContainer >
           <h1>Sign In</h1>
           {error&&<Message variant='danger'>{error}</Message>}
           {loading && <Loader />}
@@ -49,8 +49,7 @@ function LoginScreen({location, history}) {
               >
               </Form.Control>
             </Form.Group>
-
-            <Form.Group>
+            <Form.Group className='py-2'>
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type='password'
@@ -60,7 +59,6 @@ function LoginScreen({location, history}) {
               >
               </Form.Control>
             </Form.Group>
-
             <Button type='submit' variant='primary'>Sign In</Button>
           </Form>
           <Row className='py-3'>

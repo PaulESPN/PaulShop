@@ -6,7 +6,6 @@ from rest_framework.response import Response
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from base.models import Product, Review
-from base.products import products
 from base.serializers import ProductSerializer
 
 from rest_framework import status
@@ -17,7 +16,7 @@ def getProducts(request):
     if query == None:
         query=''
 
-    products = Product.objects.filter(name__icontains=query)
+    products = Product.objects.filter(name__icontains=query).order_by('-createdAt')
 
     page = request.query_params.get('page')
     paginator = Paginator(products, 4)

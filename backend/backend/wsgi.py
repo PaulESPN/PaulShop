@@ -13,7 +13,7 @@ import sys
 from django.core.wsgi import get_wsgi_application
 
 sys.path.append('/app/backend')
-os.environ["DJANGO_SETTINGS_MODULE"] = "mysite.settings"
+os.environ["DJANGO_SETTINGS_MODULE"] = "backend.settings"
 
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
